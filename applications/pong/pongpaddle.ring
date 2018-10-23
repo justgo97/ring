@@ -22,13 +22,11 @@ class PongPaddle
 		if botControle = false
 			y = clamp(yMouse - height/2, 0, oGame.screen_h - height)
 		else
-			for counter = 1 to botSpeed
-				if Ball.y > y + height/2 and y + height < oGame.screen_h
-					y++
-				elseif Ball.y < y + height/2  and y > 0
-					y--
-				ok
-			next
+			if Ball.y > y + height/2
+				y = clamp(y+botSpeed, y, oGame.screen_h-height)
+			elseif Ball.y < y + height/2
+				y = clamp(y-botSpeed, 0, y)
+			ok
 		ok
 			
 	func Draw
