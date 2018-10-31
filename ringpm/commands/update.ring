@@ -13,13 +13,20 @@ func UpdatePackage cPackageName
 			return 
 		ok
 	# Get Package File (Local & Remote) ---> Compare 
-		cRemotePackageFile = GetPackageFile(cPackageName)
-		if cRemotePackageFile = "" return ok
 		cLocalPackageFile  = read(cLocalPackageFileName)
-		eval(cRemotePackageFile)
-		cRemoteVersion = aPackageInfo[:version]
 		eval(cLocalPackageFile)
 		cLocalVersion  = aPackageInfo[:version]
+		cBranchName = aPackageInfo[:branch]
+		# Remove branch name from package name 
+			if cBranchName != NULL and cBranchName != "master"
+				if len(cPackageName) > len(cBranchName)
+					cPackageName = left(cPackageName,len(cPackageName)- len(cBranchName))
+				ok
+			ok				
+		cRemotePackageFile = GetPackageFile(cPackageName,aPackageInfo[:branch])
+		if cRemotePackageFile = "" return ok
+		eval(cRemotePackageFile)
+		cRemoteVersion = aPackageInfo[:version]
 	# Check if no updates (---> Return)
 		if cLocalVersion = cRemoteVersion
 			? C_ERROR_NOUPDATES 
@@ -27,5 +34,5 @@ func UpdatePackage cPackageName
 			return
 		ok
 	# Install Update 
-		? "Update Package : " + cPackageName
-		GetPackage(cPackageName)
+		Style("Update ",:YellowBlack) ? cPackageName
+		GetPackage(cPackageName,cBranchName,True)	# True = Update Operation (Not Install)

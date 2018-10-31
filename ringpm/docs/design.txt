@@ -5,6 +5,7 @@ Package Manager (RingPM)
 Start ---> [Ring Compiler + VM + StdlibCore + RingLibCurl + RingInternet] < 2 Mbyte
 	   Without (Libraries|Extensions|Applications)		> 1.1 GByte
 
+=======
 Advices
 =======
 
@@ -29,8 +30,13 @@ Advices
 		2 - Fixing Bug (While You are not Happy)
 		3 - Deadline 
 	Good Mode (Happy) ---> Careful - Focus - Better Code 
+8 - Ring is designed so we can switch between programming paradigms with little 
+	changes to the code 
+9 - Be careful when using the Global Variables 
+	Updating global variables from many places ---> Increase Complexity
+10- Write tests that cover the Use-Cases in details 
 
-
+=============================================
 How we will know about the installed packages 
 =============================================
 
@@ -91,6 +97,196 @@ Update Command
 ringpm update <package_name>
 
 ringpm update all	---> Update All Packages 
+
+================
+Delete Package 
+================
+
+ringpm remove <package_name>
+
+	first package 
+	second package ---->First Package 
+	Third Package  ---->Second Package 
+
+ringpm remove firstpackage ----> Error (Package used by Second Package)
+ringpm remove secondpackage ---> Error (Package used by Third Package)
+ringpm remove thirdpackage 
+		-> Remove (ThirdPackage, SecondPackage, FirstPackage)
+
+[The First Way]
+	Get all package.ring files ---> List 
+		Package Name , [List Packages that use this package] 
+	(N * N) times  ---> How much time for each item? 
+		Not very good for performance!
+
+[The Second Way]
+	Packages File that we need to update when (Install - Remove - Update)
+		Installed Package Name , [List Packages that use this package] 
+	
+================
+Install Package 
+================
+
+	ringpm install <package_name>
+		
+	ringpm install thirdpackage 
+			ThirdPackage ---> SecondPackage ---> FirstPackage
+			
+	Install related packages first, if we have error (cancel operation)		 	
+
+	InstallPackage() ----> ErrorFlag 
+		Start ----> ErrorFlag = False 	# NO Error 
+		Error ----> ErrorFlag = True	# We have error 
+	But we have nested call for InstallPackage()
+		We can't use this flag in this simple way
+
+	Two Common Solution
+		(1) Check the flag directly after calling installpackage()
+			installpackage()
+			if ErrorFlag = True return ok
+		(2) Use a Counter (ErrorFlag++)
+			---> Application (Still Live)
+			We don't use this in the Package Manager 
+			Because the Package Manager will exit after executing each command
+				---> No more operations!
+
+
+===============
+Lock File 
+===============
+
+	ringpm install thirdpackage 
+		ThirdPackage ---> SecondPackage ---> FirstPackage 
+
+	lock.ring 	for ThirdPackage
+		[ 
+			[:name = "thirdpackage" , :version = "1.0.0"],
+			[:name = "secondpackage", :version = "1.0.1"],
+			[:name = "firstpackage" , :version = "1.2.0"]
+		]
+
+	lock.ring 	for SecondPackage
+		[ 
+			[:name = "secondpackage", :version = "1.0.1"],
+			[:name = "firstpackage" , :version = "1.2.0"]
+		]
+
+	lock.ring 	for FirstPackage
+		[ 
+			[:name = "firstpackage" , :version = "1.2.0"]
+		]
+
+	(1) Each package add it's information in the start of the lock file
+
+	(2) Each package return it's lock information to caller (Parent Package)
+
+	(3) Each package write the lock file after installation 
+
+=================
+Dependency Tree 
+=================
+
+					[A]
+			[B]				[C]
+
+			[D]				[D]
+	(Case 1)	v 1.0				v 1.2	Different Versions.
+	(Case 2)	v 1.0				v 1.0   The Same Version
+
+	Lock File 	(Different Version)
+			A
+			B
+			D	v 1.0
+			C
+			D	v 1.2 
+
+	Lock File 	(Same Version)
+
+			A
+			B
+			D	v 1.0
+			C
+
+=====================
+List Command 
+=====================
+
+	Goal : (Checking for updates ---> Optional)
+
+	ringpm list -f		---> Don't check updates 
+
+	ringpm fastlist		= (list -f)
+
+
+==============================================
+How to avoid the cPackageURL (Global Variable)
+==============================================
+
+	cPackageURL --- { GetPackageFile() , DownloadPackageFiles() }
+
+		GetPackageFile() ---> Define Variable
+		DownloadPackageFiles() ---> Use 
+			called by GetPackage()
+
+	GetPackage()
+			call GetPackageFile() ---> Define Variable
+			DownloadPackageFiles() ---> Use 
+
+		Scope ( Local | Object State | Global )
+
+	(1) Keep using Global Variable 
+		But Save/Restore cPackageURL in GetPackage()
+			---> Just 2 lines of code 
+
+	(2) Use Local Variable 		---> Ignore 
+		**** Looks like a Simple Solution ****
+			But, We will keep passing cPackageURL many times 
+			Or we will return it from the function 
+				---> Not good for the API
+
+	(3) Class ---> OBJECT ( Object State )
+
+		We created the InstallCommand Class 		
+
+==================================
+Installing from different branches 
+==================================
+
+
+	Install Package ---> (master) branch
+	Installing from different branch (like v0.9 , v1.2, etc)
+
+	----> Install (Old Version) 
+
+	Example:
+
+		Developer ---> Developed an application (2 years ago)
+		User ---> Need simple update 
+
+		Developr ---> Using (Package D) - version 0.9
+		Current Version (Package D) - version 1.0 
+			--> Breaking Changes 
+
+	Two Solutions 
+
+		(1) Update Code ---> from version 0.9 to 1.0
+			---> Need Time 
+		(2) Using old version ---> v0.9
+			---> Don't have time 
+			     The budget is low 
+			     No practical need for update 
+
+	Two Features 
+
+		(1) Install Old Version ---> (Install from specific branch)
+		(2) Install more than one version from the same package 
+
+
+	ringpm install <package_name> [ branch <branch_name> ]
+
+	ringpm install d branch v0.9
+		
+	
 
 
 

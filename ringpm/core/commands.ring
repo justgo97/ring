@@ -6,6 +6,8 @@
 
 # Load Commands 
 	load "../commands/install.ring"
+	load "../commands/installcommand.ring"
+	load "../commands/lockfile.ring"
 	load "../commands/list.ring"
 	load "../commands/remove.ring"
 	load "../commands/update.ring"
@@ -20,12 +22,15 @@ func ExecuteCommands
 			on "install"				
 				cPackageName = GetPackageNameFromParameters()
 				if cPackageName = "" return ok
-				InstallPackage(cPackageName)
+				oInstall = new InstallCommand
+				oInstall.SetBranchFromCommandLine()
+				oInstall.InstallPackage(cPackageName)
 			on "update"
 				cPackageName = GetPackageNameFromParameters()
 				if cPackageName = "" return ok
 				UpdatePackage(cPackageName)				
 			on "list"
+				CheckFastList()
 				PrintInstalledPackages()
 			on "remove"
 				cPackageName = aCommand[2]
@@ -40,3 +45,7 @@ func GetPackageNameFromParameters
 	return aCommand[2]
 
 
+func CheckFastList
+	if find(aCommand,"-f") or find(aCommand,"-F")
+		lCheckUpdates = False 
+	ok

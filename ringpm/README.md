@@ -74,6 +74,65 @@ Also we will publish the live streams on (YouTube)
 			<a href="https://www.youtube.com/watch?v=Re4lxETIdm8&index=6&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">YouTube</a>
 		</td>
 	</tr>
-
+	<tr>
+		<td id="lesson7">7</td>
+		<td>
+			We will improve the List command to display the package version and check for new updates.
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156179872360345/?type=2&video_source=user_video_tab">Facebook</a> <br />
+			<a href="https://www.youtube.com/watch?v=r_JX5Lw3U54&index=7&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">YouTube</a>
+		</td>
+	</tr>
+	<tr>
+		<td id="lesson8">8</td>
+		<td>
+			Adding the Update command to update packages to newer versions
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156179966170345/?type=2&video_source=user_video_tab">Facebook</a> <br />
+			<a href="https://www.youtube.com/watch?v=IQ1Q_9nvVCE&index=8&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">YouTube</a>
+		</td>
+	</tr>
+	<tr>
+		<td id="lesson9">9</td>
+		<td>
+			Update the Remove command, Don't delete package if it's used by other packages, and when deleting a package, delete the related packages.
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156181825700345/?type=2&video_source=user_video_tab">Facebook</a> <br />
+			<a href="https://www.youtube.com/watch?v=qPtMe4f9y9w&index=9&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">YouTube</a>
+		</td>
+	</tr>
+	<tr>
+		<td id="lesson10">10</td>
+		<td>
+			If we have an error during installation of a package, display a message (Not Completed), Create Lock File for each package and don't repeat the same package in the lock file 
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156185979310345/?type=2&video_source=user_video_tab">Facebook</a> <br />
+			<a href="https://www.youtube.com/watch?v=hpinzzgkBKk&index=10&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">YouTube</a>
+		</td>
+	</tr>
+	<tr>
+		<td id="lesson11">11</td>
+		<td>
+			Better style for (Install, Remove, Update, etc) commands, Fast List ( list [-f : don't check updates] )	
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156186589925345/?type=2&video_source=user_video_tab">Facebook</a> <br />
+			<a href="https://www.youtube.com/watch?v=3bSwT28aP1w&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=11">YouTube</a>
+		</td>
+	</tr>
+	<tr>
+		<td id="lesson12">12</td>
+		<td>
+			Correct management for the state, The InstallCommand class, Better tests
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156188149035345/?type=2&video_source=user_video_tab">Facebook</a> <br />
+			<a href="https://www.youtube.com/watch?v=B7pfTYsiPqg&index=12&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">YouTube</a>
+		</td>
+	</tr>
 </table>
 

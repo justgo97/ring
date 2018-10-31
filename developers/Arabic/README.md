@@ -407,7 +407,7 @@
 	<tr>
 		<td id="pmlesson2">2</td>
 		<td>
-			تقسيم المشروع لعدة ملفات وتجهيز الملف التنفيذ وتجهيز ال Tests
+			تقسيم المشروع لعدة ملفات وتجهيز الملف التنفيذي وتجهيز ال Tests
 		</td>
 		<td>
 			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156170147090345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
@@ -450,10 +450,71 @@
 			فى هذا الدرس ندعم امكانية التحميل لل Packages من مجلدات محلية بدلا من الإنترنت.
 		</td>
 		<td>
-			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156178964340345/?type=2&video_source=user_video_tab">Facebook</a> <br />
-			<a href="https://www.youtube.com/watch?v=Re4lxETIdm8&index=6&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">YouTube</a>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156178964340345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=Re4lxETIdm8&index=6&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
+	<tr>
+		<td id="pmlesson7">7</td>
+		<td>
+			تحديث الامر List لعرض رقم الاصدار الخاص بال Package والتحقق من وجود إصدارات جديدة منها.
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156179872360345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=r_JX5Lw3U54&index=7&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+	<tr>
+		<td id="pmlesson8">8</td>
+		<td>
+			بدأ تنفيذ الأمر Update لتحديث ال Package من الإصدار الحالى إلى إصدار احدث منها.
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156179966170345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=IQ1Q_9nvVCE&index=8&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+	<tr>
+		<td id="pmlesson9">9</td>
+		<td>
+			تطوير الامر Remove وذلك لعدم ازالة Package اذا كنت مستخدمة من قبل Package اخري ... وعند حذف Package يتم ازالة ال Packages التى تعتمد عليها اذا لم تكن مستخدم من قبل Packages اخري.
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156181825700345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=qPtMe4f9y9w&index=9&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+	<tr>
+		<td id="pmlesson10">10</td>
+		<td>
+			فى حالة وجود خطأ فى تحميل package يتم اظهار رسالة بذلك ... ايضا عند تحميل package يتم عمل ملف Lock يحتوي على كل ال packages الفرعية المستخدمة ... كذلك يمنع تكرار اي package فى ملف ال Lock 
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156185979310345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=hpinzzgkBKk&index=10&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+	<tr>
+		<td id="pmlesson11">11</td>
+		<td>
+			شكل افضل لناتج الاوامر Install و Remove و Update ... تحديث الامر List باضافة الاختيار -f وذلك لعدم التحقق من التحديثات
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156186589925345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=3bSwT28aP1w&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=11">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+	<tr>
+		<td id="pmlesson12">12</td>
+		<td>
+			ادارة ال State بشكل صحيح وعمل كلاس بالاسم InstallCommand واضافة المزيد من ال Tests
+		</td>
+		<td>
+			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10156188149035345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
+			<a href="https://www.youtube.com/watch?v=B7pfTYsiPqg&index=12&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn">شاهد على اليوتيوب</a>
+		</td>
+	</tr>
+
 </table>
 
 

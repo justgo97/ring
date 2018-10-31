@@ -4,7 +4,6 @@
 	Author: Mahmoud Fayed <msfclipper@yahoo.com>
 */
 
-
 func RemovePackage cPackageName
 	cCurrentDir = CurrentDir()
 	# Check if we have the package 
@@ -14,10 +13,31 @@ func RemovePackage cPackageName
 			? C_ERROR_WEDONTHAVETHISPACKAGE
 			return
 		ok
+	Style("Deleting ",:YellowBlack) ? cPackageName
+	# Check if we can remove the package (No related packages)
+		aRelated = oAllPackagesInfo.CheckRelatedPackages(cPackageName)
+		if len(aRelated) != 0
+			? C_NOTE_AVOIDDELETINGAPACKAGE + "("+cPackageName + ") It's used by the Package (" +
+						 aRelated[1] + ")"
+			return 
+		ok
+	# Get the Package Information 
+		if ! fexists(cPath) return ok
+		eval(read(cPath))
+	# Update All Packages Info 
+		oAllPackagesInfo.RemovePackage(cPackageName)
+	# Delete the Related Package 
+		# Delete related packages 
+			for aPackage in aPackageInfo[:libs]
+				if aPackage[:branch] = NULL
+					RemovePackage(aPackage[:name])
+				else 
+					RemovePackage(aPackage[:name]+aPackage[:branch])
+				ok
+			next 
 	# Delete the package 
-		? "Deleting Package : " + cPackageName
 		chdir("packages")
 		OSDeleteFolder(cPackageName)
-	? "Operation done!"
+	if lDisplayOperationDone ? "Operation done!" ok
 	chdir(cCurrentDir)
 

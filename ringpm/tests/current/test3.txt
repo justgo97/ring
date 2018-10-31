@@ -1,3 +1,4 @@
 
 B:\ring\ringpm>echo off 
-Package : The First Package
+: The First Package [master]     -- (1.0.0)         -- No Update!
+Package (firstpackage)   

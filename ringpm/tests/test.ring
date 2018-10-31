@@ -16,12 +16,12 @@
 	We may need a lot of tests!
 */
 
-# Load Libraries
+# Load Global Libraries
 	load "stdlibcore.ring"
 	load "consolecolors.ring"
+
 # Load Local Libraries 
 	load "../cuilib/cuilib.ring"
-
 
 # Load Files
 	load "globals.ring"
@@ -54,7 +54,7 @@ func RunTests()
 		RunTest(x,aTest)
 		ShowTestResult(x,aTest)		
 	next
-	? "" line()	
+	? nl line()	
 
 func SetTestingMode
 	switch nTestMode 

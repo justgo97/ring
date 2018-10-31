@@ -1,4 +1,5 @@
 
 B:\ring\ringpm>echo off 
-Deleting Package : secondpackage
-Operation done!
+secondpackage
+Note : Avoid deleting the package (secondpackage) It's used by the Package (thirdpackage)
+Deleting 
